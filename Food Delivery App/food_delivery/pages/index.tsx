@@ -16,14 +16,16 @@ const useStyle = makeStyles(theme =>
             padding: 0
         },
         displayWelcomeTextGrid1: {
-            marginTop: theme.spacing(-60)
+            marginTop: theme.spacing(-50),
+            justifyContent: "center"
         },
         displayWelcomeTextGrid2: {
-            marginTop: theme.spacing(40)
+            marginTop: theme.spacing(28),
+            justifyContent: "center"
         },
         displayWelcomeText: {
             fontFamily: "Lucida calligraphy",
-            fontSize: 50,
+            fontSize: 30,
             color: "#e3e3e3",
             fontWeight: 400
         },
@@ -34,7 +36,7 @@ const useStyle = makeStyles(theme =>
             borderRadius: 10
         },
         introductionGrid: {
-            marginTop: theme.spacing(10),
+            marginTop: theme.spacing(15),
             paddingBottom: theme.spacing(5)
         },
         introductionText: {
@@ -50,8 +52,9 @@ const useStyle = makeStyles(theme =>
         productCardText: {
             fontFamily: "verdana",
             fontSize: 18,
-            fontWeight: 600,
-            color: "#263dff"
+            fontWeight: 400,
+            color: "#263dff",
+            marginLeft: 15
         },
         orderText: {
             fontFamily: "Lucida calligraphy",
@@ -65,11 +68,14 @@ const useStyle = makeStyles(theme =>
         menuButton: {
             padding: 5,
             minHeight: 70,
-            borderRadius: "40px"
+            borderRadius: "40px",
+            "&.active": {
+                background: "black"
+            }
         },
         menuButtonText: {
-            fontSize: 30,
-            fontWeight: 800,
+            fontSize: 20,
+            fontWeight: 300,
             fontFamily: "verdana"
         }
     })
@@ -85,10 +91,10 @@ export default function Home() {
             <Grid container className={classes.displayBackground}>
                 <img src={"/bg_4.jpg"} width={"100%"} height={"100%"} />
             </Grid>
-            <Grid container justifyContent={"center"} className={classes.displayWelcomeTextGrid1}>
+            <Grid container className={classes.displayWelcomeTextGrid1}>
                 <Typography className={classes.displayWelcomeText}>Welcome to Wheels on Meals</Typography>
             </Grid>
-            <Grid container justifyContent={"center"} className={classes.displayWelcomeTextGrid2}>
+            <Grid container className={classes.displayWelcomeTextGrid2}>
                 <Typography className={classes.displayWelcomeText}>Handmade for the food lover inside you!</Typography>
             </Grid>
             <Grid container justifyContent={"center"} className={classes.introductionGrid}>
