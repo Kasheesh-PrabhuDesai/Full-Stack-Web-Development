@@ -1,11 +1,12 @@
 import { AppBar, Box, IconButton, Toolbar, Typography, Button, makeStyles, createStyles } from "@material-ui/core";
-import { mergeClasses } from "@material-ui/styles";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 const useStyles = makeStyles(theme =>
     createStyles({
         navBarCompanyText: {
             fontFamily: "verdana",
-            fontSize: 24,
+            fontSize: 26,
             fontWeight: 500
         },
         navBarLinkText: {
@@ -19,6 +20,8 @@ const useStyles = makeStyles(theme =>
 export default function NavBar() {
     const classes = useStyles();
 
+    const router = useRouter();
+
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="fixed" color={"primary"}>
@@ -26,16 +29,16 @@ export default function NavBar() {
                     <Typography style={{ flexGrow: 1 }} className={classes.navBarCompanyText}>
                         Wheels on Meals
                     </Typography>
-                    <Button color="inherit">
+                    <Button color="inherit" onClick={() => router.push("/")}>
                         <Typography className={classes.navBarLinkText}>Home</Typography>
                     </Button>
-                    <Button color="inherit">
+                    <Button color="inherit" onClick={() => router.push("/about-us")}>
                         <Typography className={classes.navBarLinkText}>About Us</Typography>
                     </Button>
-                    <Button color="inherit">
+                    <Button color="inherit" onClick={() => router.push("/menu")}>
                         <Typography className={classes.navBarLinkText}>Menu</Typography>
                     </Button>
-                    <Button color="inherit">
+                    <Button color="inherit" onClick={() => router.push("/contact-us")}>
                         <Typography className={classes.navBarLinkText}>Contact Us</Typography>
                     </Button>
                 </Toolbar>
