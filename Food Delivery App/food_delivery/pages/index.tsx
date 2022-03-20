@@ -2,6 +2,7 @@ import { Box, Button, Card, CardContent, CardMedia, createStyles, Grid, makeStyl
 import Image from "next/image";
 import NavBar from "../src/components/navbar";
 import { ArrowRightAlt } from "@material-ui/icons";
+import { useRouter } from "next/router";
 
 const useStyle = makeStyles(theme =>
     createStyles({
@@ -83,6 +84,9 @@ const useStyle = makeStyles(theme =>
 
 export default function Home() {
     const classes = useStyle();
+
+    const router = useRouter();
+
     return (
         <Box className={classes.container}>
             <Grid container>
@@ -98,7 +102,7 @@ export default function Home() {
                 <Typography className={classes.displayWelcomeText}>Handmade for the food lover inside you!</Typography>
             </Grid>
             <Grid container justifyContent={"center"} className={classes.introductionGrid}>
-                <Typography className={classes.introductionText}>What's so special about us?</Typography>
+                <Typography className={classes.introductionText}>What is so special about us?</Typography>
             </Grid>
             <Grid container justifyContent={"space-around"}>
                 <Grid item>
@@ -134,7 +138,12 @@ export default function Home() {
                 <Typography className={classes.orderText}>Impressed already? Wait till you see our menu....</Typography>
             </Grid>
             <Grid container justifyContent={"center"} className={classes.menuButton}>
-                <Button variant={"contained"} color={"primary"} endIcon={<ArrowRightAlt style={{ width: 32, height: 32 }} />}>
+                <Button
+                    variant={"contained"}
+                    color={"primary"}
+                    endIcon={<ArrowRightAlt style={{ width: 32, height: 32 }} />}
+                    onClick={() => router.push("/menu")}
+                >
                     <Typography className={classes.menuButtonText}>SHOW ME THE MENU NOW</Typography>
                 </Button>
             </Grid>
