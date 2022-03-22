@@ -5,6 +5,8 @@ import TabList from "@material-ui/lab/TabList";
 import TabPanel from "@material-ui/lab/TabPanel";
 import SoupsMenu from "./soups";
 import StartersVegMenu from "./starters-veg";
+import StartersNonVegMenu from "./starters-non-veg";
+import MainCourseVegMenu from "./main-course-veg";
 
 const useStyle = makeStyles(theme =>
     createStyles({
@@ -86,8 +88,12 @@ export default function MenuTab() {
                 <TabPanel value="2">
                     <StartersVegMenu />
                 </TabPanel>
-                <TabPanel value="3">Item Three</TabPanel>
-                <TabPanel value="4">Item One</TabPanel>
+                <TabPanel value="3">
+                    <StartersNonVegMenu />
+                </TabPanel>
+                <TabPanel value="4">
+                    <MainCourseVegMenu />
+                </TabPanel>
                 <TabPanel value="5">Item Two</TabPanel>
                 <TabPanel value="6">Item Three</TabPanel>
                 <TabPanel value="7">Item One</TabPanel>
