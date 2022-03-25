@@ -7,6 +7,10 @@ import SoupsMenu from "./soups";
 import StartersVegMenu from "./starters-veg";
 import StartersNonVegMenu from "./starters-non-veg";
 import MainCourseVegMenu from "./main-course-veg";
+import MainCourseNonVegMenu from "./main-course-non-veg";
+import SidesMenu from "./sides-bread";
+import DessertsMenu from "./desserts";
+import BeveragesMenu from "./beverages";
 
 const useStyle = makeStyles(theme =>
     createStyles({
@@ -94,10 +98,18 @@ export default function MenuTab() {
                 <TabPanel value="4">
                     <MainCourseVegMenu />
                 </TabPanel>
-                <TabPanel value="5">Item Two</TabPanel>
-                <TabPanel value="6">Item Three</TabPanel>
-                <TabPanel value="7">Item One</TabPanel>
-                <TabPanel value="8">Item Two</TabPanel>
+                <TabPanel value="5">
+                    <MainCourseNonVegMenu />
+                </TabPanel>
+                <TabPanel value="6">
+                    <SidesMenu />
+                </TabPanel>
+                <TabPanel value="7">
+                    <DessertsMenu />
+                </TabPanel>
+                <TabPanel value="8">
+                    <BeveragesMenu />
+                </TabPanel>
             </TabContext>
         </>
     );
