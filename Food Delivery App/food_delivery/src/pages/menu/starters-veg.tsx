@@ -14,8 +14,8 @@ const useStyle = makeStyles(theme =>
             fontSize: 24,
             fontWeight: 600
         },
-        cartButton: {
-            marginTop: theme.spacing(2)
+        textGrid: {
+            padding: 10
         }
     })
 );
@@ -29,14 +29,13 @@ export default function StartersVegMenu() {
                 <Card className={classes.soupsCard}>
                     <CardMedia image="starters-veg/spring-roll.jpg" className={classes.soupsMedia} />
                     <CardContent>
-                        <Grid container justifyContent={"center"}>
+                        <Grid container justifyContent={"center"} className={classes.textGrid}>
                             <Typography className={classes.soupsHeaderText}>Spring Roll</Typography>
-                            <Typography align="center">
-                                Delicious pancake rolled into a cone, filled with the finest vegetables. Served deep fried along with our spiciest sauce on
-                                the house.
-                            </Typography>
                         </Grid>
-                        <Grid container justifyContent={"center"} className={classes.cartButton}>
+                        <Grid container justifyContent={"center"} className={classes.textGrid}>
+                            <Typography className={classes.soupsHeaderText}>Rs. 160</Typography>
+                        </Grid>
+                        <Grid container justifyContent={"center"} className={classes.textGrid}>
                             <Button variant="contained" color="primary">
                                 Add to cart
                             </Button>
@@ -47,14 +46,13 @@ export default function StartersVegMenu() {
                 <Card className={classes.soupsCard}>
                     <CardMedia image="starters-veg/crispy-honey-chilli-potatoes.jpg" className={classes.soupsMedia} />
                     <CardContent>
-                        <Grid container justifyContent={"center"}>
+                        <Grid container justifyContent={"center"} className={classes.textGrid}>
                             <Typography className={classes.soupsHeaderText}>Crispy Honey Chilli Potatoes</Typography>
-                            <Typography align="center">
-                                super crispy honey chilli potatoes first batter fried and then deep fried to achieve amazing crispiness. Coated in three
-                                layers to achieve extra layer of texture and to make it sweet and spicy
-                            </Typography>
                         </Grid>
-                        <Grid container justifyContent={"center"} className={classes.cartButton}>
+                        <Grid container justifyContent={"center"} className={classes.textGrid}>
+                            <Typography className={classes.soupsHeaderText}>Rs. 180</Typography>
+                        </Grid>
+                        <Grid container justifyContent={"center"} className={classes.textGrid}>
                             <Button variant="contained" color="primary">
                                 Add to cart
                             </Button>
@@ -65,11 +63,13 @@ export default function StartersVegMenu() {
                 <Card className={classes.soupsCard}>
                     <CardMedia image="starters-veg/paneer-tikka.jpg" className={classes.soupsMedia} />
                     <CardContent>
-                        <Grid container justifyContent={"center"}>
+                        <Grid container justifyContent={"center"} className={classes.textGrid}>
                             <Typography className={classes.soupsHeaderText}>Paneer Tikka</Typography>
-                            <Typography align="center">One of the popular North Indian starters</Typography>
                         </Grid>
-                        <Grid container justifyContent={"center"} className={classes.cartButton}>
+                        <Grid container justifyContent={"center"} className={classes.textGrid}>
+                            <Typography className={classes.soupsHeaderText}>Rs. 200</Typography>
+                        </Grid>
+                        <Grid container justifyContent={"center"} className={classes.textGrid}>
                             <Button variant="contained" color="primary">
                                 Add to cart
                             </Button>
@@ -82,14 +82,13 @@ export default function StartersVegMenu() {
                 <Card className={classes.soupsCard}>
                     <CardMedia image="starters-veg/mushroom-manchurian.jpg" className={classes.soupsMedia} />
                     <CardContent>
-                        <Grid container justifyContent={"center"}>
+                        <Grid container justifyContent={"center"} className={classes.textGrid}>
                             <Typography className={classes.soupsHeaderText}>Mushroom Manchurian</Typography>
-                            <Typography align="center">
-                                made from shrimp, fennel, chilies, oregano, basil, thyme and mushrooms, but with a very light cream filled sauce. Served
-                                with garlic breadsticks
-                            </Typography>
                         </Grid>
-                        <Grid container justifyContent={"center"} className={classes.cartButton}>
+                        <Grid container justifyContent={"center"} className={classes.textGrid}>
+                            <Typography className={classes.soupsHeaderText}>Rs. 230</Typography>
+                        </Grid>
+                        <Grid container justifyContent={"center"} className={classes.textGrid}>
                             <Button variant="contained" color="primary">
                                 Add to cart
                             </Button>
@@ -100,14 +99,13 @@ export default function StartersVegMenu() {
                 <Card className={classes.soupsCard}>
                     <CardMedia image="starters-veg/gobi-manchurian.jpg" className={classes.soupsMedia} />
                     <CardContent>
-                        <Grid container justifyContent={"center"}>
+                        <Grid container justifyContent={"center"} className={classes.textGrid}>
                             <Typography className={classes.soupsHeaderText}>Gobi Manchurian</Typography>
-                            <Typography align="center">
-                                Freshly fried croutons tossed in the finest handpicked herbs, mixed in a creamy white sauce seasoned with freshly crushed
-                                black peppers and kosher salt
-                            </Typography>
                         </Grid>
-                        <Grid container justifyContent={"center"} className={classes.cartButton}>
+                        <Grid container justifyContent={"center"} className={classes.textGrid}>
+                            <Typography className={classes.soupsHeaderText}>Rs. 220</Typography>
+                        </Grid>
+                        <Grid container justifyContent={"center"} className={classes.textGrid}>
                             <Button variant="contained" color="primary">
                                 Add to cart
                             </Button>
@@ -118,14 +116,13 @@ export default function StartersVegMenu() {
                 <Card className={classes.soupsCard}>
                     <CardMedia image="starters-veg/sweet-corn-kebab.jpg" className={classes.soupsMedia} />
                     <CardContent>
-                        <Grid container justifyContent={"center"}>
+                        <Grid container justifyContent={"center"} className={classes.textGrid}>
                             <Typography className={classes.soupsHeaderText}>Sweet Corn Kebab</Typography>
-                            <Typography align="center">
-                                Not as scary as the name suggests. In fact one of the healthiest choices if you are on a diet. Made from raddish and a
-                                finest choices of home-made herbs
-                            </Typography>
                         </Grid>
-                        <Grid container justifyContent={"center"} className={classes.cartButton}>
+                        <Grid container justifyContent={"center"} className={classes.textGrid}>
+                            <Typography className={classes.soupsHeaderText}>Rs. 260</Typography>
+                        </Grid>
+                        <Grid container justifyContent={"center"} className={classes.textGrid}>
                             <Button variant="contained" color="primary">
                                 Add to cart
                             </Button>

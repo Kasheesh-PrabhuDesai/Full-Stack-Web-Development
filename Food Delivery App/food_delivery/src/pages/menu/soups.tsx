@@ -1,4 +1,5 @@
 import { Card, makeStyles, createStyles, CardMedia, CardContent, Typography, Grid, Button } from "@material-ui/core";
+import { userServices } from "../../user-services";
 
 const useStyle = makeStyles(theme =>
     createStyles({
@@ -14,8 +15,8 @@ const useStyle = makeStyles(theme =>
             fontSize: 24,
             fontWeight: 600
         },
-        cartButton: {
-            marginTop: theme.spacing(2)
+        textGrid: {
+            padding: 10
         }
     })
 );
@@ -23,21 +24,25 @@ const useStyle = makeStyles(theme =>
 export default function SoupsMenu() {
     const classes = useStyle();
 
+    const addToCartButton = async (id: string, category: string) => {
+        await userServices.addToCart(category, id);
+        console.log(id, category);
+    };
+
     return (
         <>
             <Grid container justifyContent={"space-around"}>
                 <Card className={classes.soupsCard}>
                     <CardMedia image="soups/potato-soup.jpg" className={classes.soupsMedia} />
                     <CardContent>
-                        <Grid container justifyContent={"center"}>
+                        <Grid container justifyContent={"center"} className={classes.textGrid}>
                             <Typography className={classes.soupsHeaderText}>Potato Creamy Soup</Typography>
-                            <Typography align="center">
-                                made from pureed fresh potatoes with just a splash of milk, topped with home - made granola and sprinkled with lightly
-                                toasted walnuts
-                            </Typography>
                         </Grid>
-                        <Grid container justifyContent={"center"} className={classes.cartButton}>
-                            <Button variant="contained" color="primary">
+                        <Grid container justifyContent={"center"} className={classes.textGrid}>
+                            <Typography className={classes.soupsHeaderText}>Rs. 100</Typography>
+                        </Grid>
+                        <Grid container justifyContent={"center"} className={classes.textGrid}>
+                            <Button variant="contained" color="primary" onClick={() => addToCartButton("1", "soups")}>
                                 Add to cart
                             </Button>
                         </Grid>
@@ -47,15 +52,14 @@ export default function SoupsMenu() {
                 <Card className={classes.soupsCard}>
                     <CardMedia image="soups/mushroom-soup.jpg" className={classes.soupsMedia} />
                     <CardContent>
-                        <Grid container justifyContent={"center"}>
+                        <Grid container justifyContent={"center"} className={classes.textGrid}>
                             <Typography className={classes.soupsHeaderText}>Mushroom Soup</Typography>
-                            <Typography align="center">
-                                made from freshly picked mushrooms, root veggies ,sprinkled with black pepper, pink Himalayan salt and of course drizzled
-                                with a yummy cream sauce
-                            </Typography>
                         </Grid>
-                        <Grid container justifyContent={"center"} className={classes.cartButton}>
-                            <Button variant="contained" color="primary">
+                        <Grid container justifyContent={"center"} className={classes.textGrid}>
+                            <Typography className={classes.soupsHeaderText}>Rs. 150</Typography>
+                        </Grid>
+                        <Grid container justifyContent={"center"} className={classes.textGrid}>
+                            <Button variant="contained" color="primary" onClick={() => addToCartButton("2", "soups")}>
                                 Add to cart
                             </Button>
                         </Grid>
@@ -65,15 +69,14 @@ export default function SoupsMenu() {
                 <Card className={classes.soupsCard}>
                     <CardMedia image="soups/spinach-soup.jpg" className={classes.soupsMedia} />
                     <CardContent>
-                        <Grid container justifyContent={"center"}>
+                        <Grid container justifyContent={"center"} className={classes.textGrid}>
                             <Typography className={classes.soupsHeaderText}>Courgette Soup</Typography>
-                            <Typography align="center">
-                                made from spinach leaves, tossed in creamy cheese sauce with a sprinkle of delicious freshly made home-made herbs.Served
-                                with a home baked bread
-                            </Typography>
                         </Grid>
-                        <Grid container justifyContent={"center"} className={classes.cartButton}>
-                            <Button variant="contained" color="primary">
+                        <Grid container justifyContent={"center"} className={classes.textGrid}>
+                            <Typography className={classes.soupsHeaderText}>Rs. 130</Typography>
+                        </Grid>
+                        <Grid container justifyContent={"center"} className={classes.textGrid}>
+                            <Button variant="contained" color="primary" onClick={() => addToCartButton("3", "soups")}>
                                 Add to cart
                             </Button>
                         </Grid>
@@ -85,15 +88,14 @@ export default function SoupsMenu() {
                 <Card className={classes.soupsCard}>
                     <CardMedia image="soups/shrimp-soup.jpg" className={classes.soupsMedia} />
                     <CardContent>
-                        <Grid container justifyContent={"center"}>
+                        <Grid container justifyContent={"center"} className={classes.textGrid}>
                             <Typography className={classes.soupsHeaderText}>Chinese Shrimp Soup</Typography>
-                            <Typography align="center">
-                                made from shrimp, fennel, chilies, oregano, basil, thyme and mushrooms, but with a very light cream filled sauce. Served
-                                with garlic breadsticks
-                            </Typography>
                         </Grid>
-                        <Grid container justifyContent={"center"} className={classes.cartButton}>
-                            <Button variant="contained" color="primary">
+                        <Grid container justifyContent={"center"} className={classes.textGrid}>
+                            <Typography className={classes.soupsHeaderText}>Rs. 180</Typography>
+                        </Grid>
+                        <Grid container justifyContent={"center"} className={classes.textGrid}>
+                            <Button variant="contained" color="primary" onClick={() => addToCartButton("4", "soups")}>
                                 Add to cart
                             </Button>
                         </Grid>
@@ -103,15 +105,14 @@ export default function SoupsMenu() {
                 <Card className={classes.soupsCard}>
                     <CardMedia image="soups/croutons-soup.jpg" className={classes.soupsMedia} />
                     <CardContent>
-                        <Grid container justifyContent={"center"}>
+                        <Grid container justifyContent={"center"} className={classes.textGrid}>
                             <Typography className={classes.soupsHeaderText}>Croutons Soup</Typography>
-                            <Typography align="center">
-                                Freshly fried croutons tossed in the finest handpicked herbs, mixed in a creamy white sauce seasoned with freshly crushed
-                                black peppers and kosher salt
-                            </Typography>
                         </Grid>
-                        <Grid container justifyContent={"center"} className={classes.cartButton}>
-                            <Button variant="contained" color="primary">
+                        <Grid container justifyContent={"center"} className={classes.textGrid}>
+                            <Typography className={classes.soupsHeaderText}>Rs. 150</Typography>
+                        </Grid>
+                        <Grid container justifyContent={"center"} className={classes.textGrid}>
+                            <Button variant="contained" color="primary" onClick={() => addToCartButton("5", "soups")}>
                                 Add to cart
                             </Button>
                         </Grid>
@@ -121,15 +122,14 @@ export default function SoupsMenu() {
                 <Card className={classes.soupsCard}>
                     <CardMedia image="soups/raddish-soup.jpg" className={classes.soupsMedia} />
                     <CardContent>
-                        <Grid container justifyContent={"center"}>
-                            <Typography className={classes.soupsHeaderText}>Bloody mary Soup</Typography>
-                            <Typography align="center">
-                                Not as scary as the name suggests. In fact one of the healthiest choices if you are on a diet. Made from raddish and a
-                                finest choices of home-made herbs
-                            </Typography>
+                        <Grid container justifyContent={"center"} className={classes.textGrid}>
+                            <Typography className={classes.soupsHeaderText}>Raddish Soup</Typography>
                         </Grid>
-                        <Grid container justifyContent={"center"} className={classes.cartButton}>
-                            <Button variant="contained" color="primary">
+                        <Grid container justifyContent={"center"} className={classes.textGrid}>
+                            <Typography className={classes.soupsHeaderText}>Rs. 160</Typography>
+                        </Grid>
+                        <Grid container justifyContent={"center"} className={classes.textGrid}>
+                            <Button variant="contained" color="primary" onClick={() => addToCartButton("6", "soups")}>
                                 Add to cart
                             </Button>
                         </Grid>

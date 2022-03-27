@@ -15,15 +15,13 @@ import BeveragesMenu from "./beverages";
 const useStyle = makeStyles(theme =>
     createStyles({
         tabsGrid: {
-            width: "100%",
             height: 50,
-            justifyContent: "space-around",
-            marginLeft: theme.spacing(0.5)
+            justifyContent: "center"
         },
         tabs: {
-            fontSize: 14,
+            fontSize: 16,
             fontWeight: 600,
-            border: "1px solid #d8dee9"
+            border: "2px solid #d8dee9"
         },
         indicator: {
             background: "purple"
@@ -75,16 +73,18 @@ export default function MenuTab() {
     return (
         <>
             <TabContext value={value}>
-                <TabList onChange={handleChange} variant="fullWidth" indicatorColor="secondary">
-                    <Tab label="Soups" value="1" className={classes.tabs} />
-                    <Tab label="Starters Veg" value="2" className={classes.tabs} />
-                    <Tab label="Starters Non-Veg" value="3" className={classes.tabs} />
-                    <Tab label="Main Course Veg" value="4" className={classes.tabs} />
-                    <Tab label="Main Course Non-Veg" value="5" className={classes.tabs} />
-                    <Tab label="Sides/Bread" value="6" className={classes.tabs} />
-                    <Tab label="Desserts" value="7" className={classes.tabs} />
-                    <Tab label="Beverages/Drinks" value="8" className={classes.tabs} />
-                </TabList>
+                <Grid container className={classes.tabsGrid}>
+                    <TabList onChange={handleChange} indicatorColor="secondary">
+                        <Tab label="Soups" value="1" className={classes.tabs} />
+                        <Tab label="Starters Veg" value="2" className={classes.tabs} />
+                        <Tab label="Starters Non-Veg" value="3" className={classes.tabs} />
+                        <Tab label="Main Course Veg" value="4" className={classes.tabs} />
+                        <Tab label="Main Course Non-Veg" value="5" className={classes.tabs} />
+                        <Tab label="Sides/Bread" value="6" className={classes.tabs} />
+                        <Tab label="Desserts" value="7" className={classes.tabs} />
+                        <Tab label="Beverages/Drinks" value="8" className={classes.tabs} />
+                    </TabList>
+                </Grid>
 
                 <TabPanel value="1">
                     <SoupsMenu />
