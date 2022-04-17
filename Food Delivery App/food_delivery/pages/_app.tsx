@@ -5,6 +5,10 @@ import { ThemeProvider, CssBaseline } from "@material-ui/core";
 import theme from "../src/theme";
 import { useEffect } from "react";
 import { Fragment } from "react";
+import { Provider } from "react-redux";
+import { store, persistor } from "../src/store";
+import { PersistGate } from "redux-persist/integration/react";
+import NavBar from "../src/components/navbar";
 
 // Client-side cache, shared for the whole session of the user in the browser.
 
@@ -20,12 +24,17 @@ export default function MyApp(props: any) {
     return (
         <Fragment>
             <Head>
-                <meta name="viewport" content="initial-scale=1, width=device-width" />
+                <meta name="viewport" content="initial-scale=1, width=device-width" title="Wheels On Meals" />
             </Head>
             <ThemeProvider theme={theme}>
-                {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-                <CssBaseline />
-                <Component {...pageProps} />
+                <Provider store={store}>
+                    <PersistGate persistor={persistor}>
+                        <NavBar />
+                        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+                        <CssBaseline />
+                        <Component {...pageProps} />
+                    </PersistGate>
+                </Provider>
             </ThemeProvider>
         </Fragment>
     );
