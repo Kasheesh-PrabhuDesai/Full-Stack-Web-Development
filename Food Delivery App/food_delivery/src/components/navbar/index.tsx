@@ -1,6 +1,8 @@
 import { AppBar, Box, IconButton, Toolbar, Typography, Button, makeStyles, createStyles } from "@material-ui/core";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import { useSelector } from "react-redux";
 
 const useStyles = makeStyles(theme =>
     createStyles({
@@ -22,6 +24,8 @@ export default function NavBar() {
 
     const router = useRouter();
 
+    const cart = useSelector((state: any) => state.cart);
+
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="fixed" color={"primary"}>
@@ -40,6 +44,10 @@ export default function NavBar() {
                     </Button>
                     <Button color="inherit" onClick={() => router.push("/contact-us")}>
                         <Typography className={classes.navBarLinkText}>Contact Us</Typography>
+                    </Button>
+                    <Button color="inherit" onClick={() => router.push("/cart")}>
+                        <ShoppingCartIcon />
+                        <Typography>{cart.length}</Typography>
                     </Button>
                 </Toolbar>
             </AppBar>

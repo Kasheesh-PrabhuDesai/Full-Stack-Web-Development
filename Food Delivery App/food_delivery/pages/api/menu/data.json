@@ -1,0 +1,317 @@
+[
+    {
+        "id": 1,
+        "product": "potato-soup",
+        "category": "soups",
+        "image": "https://imgur.com/3CF1UhY.png",
+        "price": 36.49
+    },
+    {
+        "id": 2,
+        "product": "mushroom-soup",
+        "category": "soups",
+        "image": "https://imgur.com/3CF1UhY.png",
+        "price": 36.49
+    },
+    {
+        "id": 3,
+        "product": "spinach-soup",
+        "category": "soups",
+        "image": "https://imgur.com/3CF1UhY.png",
+        "price": 36.49
+    },
+    {
+        "id": 4,
+        "product": "shrimp-soup",
+        "category": "soups",
+        "image": "https://imgur.com/3CF1UhY.png",
+        "price": 36.49
+    },
+    {
+        "id": 5,
+        "product": "croutons-soup",
+        "category": "soups",
+        "image": "https://imgur.com/3CF1UhY.png",
+        "price": 36.49
+    },
+    {
+        "id": 6,
+        "product": "raddish-soup",
+        "category": "soups",
+        "image": "https://imgur.com/3CF1UhY.png",
+        "price": 36.49
+    },
+    {
+        "id": 7,
+        "product": "spring-roll",
+        "category": "starters-veg",
+        "image": "https://imgur.com/v3lqCEb.png",
+        "price": 18.99
+    },
+    {
+        "id": 8,
+        "product": "crispy-honey-chilli-potatoes",
+        "category": "starters-veg",
+        "image": "https://imgur.com/3lTxDpl.png",
+        "price": 29.99
+    },
+    {
+        "id": 9,
+        "product": "paneer-tikka",
+        "category": "starters-veg",
+        "image": "https://imgur.com/4GvUw3G.png",
+        "price": 69.99
+    },
+    {
+        "id": 10,
+        "product": "mushroom-manchurian",
+        "category": "starters-veg",
+        "image": "https://imgur.com/Mxjvkws.png",
+        "price": 69.99
+    },
+    {
+        "id": 11,
+        "product": "gobi-manchurian",
+        "category": "starters-veg",
+        "image": "https://imgur.com/guV5cUF.png",
+        "price": 29.99
+    },
+    {
+        "id": 12,
+        "product": "sweet-corn-kebab",
+        "category": "starters-veg",
+        "image": "https://imgur.com/1CxJz8E.png",
+        "price": 59.99
+    },
+    {
+        "id": 13,
+        "product": "amritsari-fish-fingers",
+        "category": "starters-non-veg",
+        "image": "https://imgur.com/xJD093X.png",
+        "price": 59.99
+    },
+    {
+        "id": 14,
+        "product": "prawn-dumplings",
+        "category": "starters-non-veg",
+        "image": "https://imgur.com/1SVaEBk.png",
+        "price": 59.99
+    },
+    {
+        "id": 15,
+        "product": "cheesy-chicken-tikka",
+        "category": "starters-non-veg",
+        "image": "https://imgur.com/IX5eunc.png",
+        "price": 59.99
+    },
+    {
+        "id": 16,
+        "product": "murgh-malai-kebab",
+        "category": "starters-non-veg",
+        "image": "https://imgur.com/aL3nj5t.png",
+        "price": 14.99
+    },
+    {
+        "id": 17,
+        "product": "chicken-bell-pepper-skewers",
+        "category": "starters-non-veg",
+        "image": "https://imgur.com/CPxlyEg.png",
+        "price": 59.99
+    },
+    {
+        "id": 18,
+        "product": "prawn-cutlets",
+        "category": "starters-non-veg",
+        "image": "https://imgur.com/ZuLatzs.png",
+        "price": 59.99
+    },
+    {
+        "id": 19,
+        "product": "veg-biryani",
+        "category": "main-course-veg",
+        "image": "https://imgur.com/9LRil4N.png",
+        "price": 29.99
+    },
+    {
+        "id": 20,
+        "product": "paneer-butter-masala",
+        "category": "main-course-veg",
+        "image": "https://imgur.com/T3v629h.png",
+        "price": 39.99
+    },
+    {
+        "id": 21,
+        "product": "paneer-tikka-masala",
+        "category": "main-course-veg",
+        "image": "https://imgur.com/aLObdQK.png",
+        "price": 39.99
+    },
+    {
+        "id": 22,
+        "product": "gobi-manchurian",
+        "category": "main-course-veg",
+        "image": "https://imgur.com/2IeocI8.png",
+        "price": 59.99
+    },
+    {
+        "id": 23,
+        "product": "mix-veg-sabzi",
+        "category": "main-course-veg",
+        "image": "https://imgur.com/gLQsp6N.png",
+        "price": 59.99
+    },
+    {
+        "id": 24,
+        "product": "veg-kolhapuri",
+        "category": "main-course-veg",
+        "image": "https://imgur.com/qm1gaGD.png",
+        "price": 29.99
+    },
+    {
+        "id": 25,
+        "product": "murgh-nizami",
+        "category": "main-course-non-veg",
+        "image": "https://imgur.com/JIgzykM.png",
+        "price": 7.99
+    },
+    {
+        "id": 26,
+        "product": "pepper-chicken",
+        "category": "main-course-non-veg",
+        "image": "https://imgur.com/a964vBm.png",
+        "price": 59.0
+    },
+    {
+        "id": 27,
+        "product": "butter-chicken",
+        "category": "main-course-non-veg",
+        "image": "https://imgur.com/ntrEPb1.png",
+        "price": 69.0
+    },
+    {
+        "id": 28,
+        "product": "prawns-curry",
+        "category": "main-course-non-veg",
+        "image": "https://imgur.com/VMe3WBk.png",
+        "price": 49.99
+    },
+    {
+        "id": 29,
+        "product": "chicken-biryani",
+        "category": "main-course-non-veg",
+        "image": "https://imgur.com/wvpHOCm.png",
+        "price": 29.99
+    },
+    {
+        "id": 30,
+        "product": "mutton-rogan-josh",
+        "category": "main-course-non-veg",
+        "image": "https://imgur.com/faQ0IXH.png",
+        "price": 13.99
+    },
+    {
+        "id": 31,
+        "product": "whole-wheat-paratha",
+        "category": "sides-bread",
+        "image": "https://imgur.com/JIgzykM.png",
+        "price": 7.99
+    },
+    {
+        "id": 32,
+        "product": "aloo-paratha",
+        "category": "sides-bread",
+        "image": "https://imgur.com/a964vBm.png",
+        "price": 59.0
+    },
+    {
+        "id": 33,
+        "product": "roti",
+        "category": "sides-bread",
+        "image": "https://imgur.com/ntrEPb1.png",
+        "price": 69.0
+    },
+    {
+        "id": 34,
+        "product": "garlic-naan",
+        "category": "sides-bread",
+        "image": "https://imgur.com/VMe3WBk.png",
+        "price": 49.99
+    },
+    {
+        "id": 35,
+        "product": "cheese-garlic-naan",
+        "category": "sides-bread",
+        "image": "https://imgur.com/wvpHOCm.png",
+        "price": 29.99
+    },
+    {
+        "id": 36,
+        "product": "kesar-kulfi",
+        "category": "desserts",
+        "image": "https://imgur.com/faQ0IXH.png",
+        "price": 13.99
+    },
+    {
+        "id": 37,
+        "product": "malai-kulfi",
+        "category": "desserts",
+        "image": "https://imgur.com/faQ0IXH.png",
+        "price": 13.99
+    },
+    {
+        "id": 38,
+        "product": "seradura",
+        "category": "desserts",
+        "image": "https://imgur.com/faQ0IXH.png",
+        "price": 13.99
+    },
+    {
+        "id": 39,
+        "product": "gulab-jamun",
+        "category": "desserts",
+        "image": "https://imgur.com/faQ0IXH.png",
+        "price": 13.99
+    },
+    {
+        "id": 40,
+        "product": "rasmalai",
+        "category": "desserts",
+        "image": "https://imgur.com/faQ0IXH.png",
+        "price": 13.99
+    },
+    {
+        "id": 41,
+        "product": "custard-pudding",
+        "category": "desserts",
+        "image": "https://imgur.com/faQ0IXH.png",
+        "price": 13.99
+    },
+    {
+        "id": 42,
+        "product": "mango-lassi",
+        "category": "beverages",
+        "image": "https://imgur.com/faQ0IXH.png",
+        "price": 13.99
+    },
+    {
+        "id": 43,
+        "product": "island-ice-tea",
+        "category": "beverages",
+        "image": "https://imgur.com/faQ0IXH.png",
+        "price": 13.99
+    },
+    {
+        "id": 44,
+        "product": "tandoori-chai",
+        "category": "beverages",
+        "image": "https://imgur.com/faQ0IXH.png",
+        "price": 13.99
+    },
+    {
+        "id": 45,
+        "product": "coffee",
+        "category": "beverages",
+        "image": "https://imgur.com/faQ0IXH.png",
+        "price": 13.99
+    }
+]

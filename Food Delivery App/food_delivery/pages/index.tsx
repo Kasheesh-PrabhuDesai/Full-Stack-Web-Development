@@ -89,9 +89,6 @@ export default function Home() {
 
     return (
         <Box className={classes.container}>
-            <Grid container>
-                <NavBar />
-            </Grid>
             <Grid container className={classes.displayBackground}>
                 <img src={"/bg_4.jpg"} width={"100%"} height={"100%"} />
             </Grid>
