@@ -9,6 +9,7 @@ import { Provider } from "react-redux";
 import { store, persistor } from "../src/store";
 import { PersistGate } from "redux-persist/integration/react";
 import NavBar from "../src/components/navbar";
+import Footer from "../src/components/footer";
 
 // Client-side cache, shared for the whole session of the user in the browser.
 
@@ -33,6 +34,7 @@ export default function MyApp(props: any) {
                         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
                         <CssBaseline />
                         <Component {...pageProps} />
+                        <Footer />
                     </PersistGate>
                 </Provider>
             </ThemeProvider>
