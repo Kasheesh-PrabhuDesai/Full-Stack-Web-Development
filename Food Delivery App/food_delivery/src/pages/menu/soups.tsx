@@ -27,8 +27,8 @@ export default function SoupsMenu() {
 
     const dispatch = useDispatch();
 
-    const addToCartButton = async (id: string, category: string, price: number) => {
-        const product = { id: id, category: category, price: price };
+    const addToCartButton = async (id: string, category: string, price: number, name: string) => {
+        const product = { id: id, category: category, price: price, name: name };
         dispatch(addToCart(product));
     };
 
@@ -47,7 +47,7 @@ export default function SoupsMenu() {
                             <Typography className={classes.soupsHeaderText}>Rs. 100</Typography>
                         </Grid>
                         <Grid container justifyContent={"center"} className={classes.textGrid}>
-                            <Button variant="contained" color="primary" onClick={() => addToCartButton("1", "soups", 100)}>
+                            <Button variant="contained" color="primary" onClick={() => addToCartButton("1", "soups", 100, "Potato Creamy Soup")}>
                                 Add to cart
                             </Button>
                         </Grid>
@@ -64,7 +64,7 @@ export default function SoupsMenu() {
                             <Typography className={classes.soupsHeaderText}>Rs. 150</Typography>
                         </Grid>
                         <Grid container justifyContent={"center"} className={classes.textGrid}>
-                            <Button variant="contained" color="primary" onClick={() => addToCartButton("2", "soups", 150)}>
+                            <Button variant="contained" color="primary" onClick={() => addToCartButton("2", "soups", 150, "Mushroom Soup")}>
                                 Add to cart
                             </Button>
                         </Grid>
@@ -81,7 +81,7 @@ export default function SoupsMenu() {
                             <Typography className={classes.soupsHeaderText}>Rs. 130</Typography>
                         </Grid>
                         <Grid container justifyContent={"center"} className={classes.textGrid}>
-                            <Button variant="contained" color="primary" onClick={() => addToCartButton("3", "soups", 130)}>
+                            <Button variant="contained" color="primary" onClick={() => addToCartButton("3", "soups", 130, "Courgette Soup")}>
                                 Add to cart
                             </Button>
                         </Grid>
@@ -100,7 +100,7 @@ export default function SoupsMenu() {
                             <Typography className={classes.soupsHeaderText}>Rs. 180</Typography>
                         </Grid>
                         <Grid container justifyContent={"center"} className={classes.textGrid}>
-                            <Button variant="contained" color="primary" onClick={() => addToCartButton("4", "soups", 180)}>
+                            <Button variant="contained" color="primary" onClick={() => addToCartButton("4", "soups", 180, "Chinese Shrimp Soup")}>
                                 Add to cart
                             </Button>
                         </Grid>
@@ -117,7 +117,7 @@ export default function SoupsMenu() {
                             <Typography className={classes.soupsHeaderText}>Rs. 150</Typography>
                         </Grid>
                         <Grid container justifyContent={"center"} className={classes.textGrid}>
-                            <Button variant="contained" color="primary" onClick={() => addToCartButton("5", "soups", 150)}>
+                            <Button variant="contained" color="primary" onClick={() => addToCartButton("5", "soups", 150, "Croutons Soup")}>
                                 Add to cart
                             </Button>
                         </Grid>
@@ -134,7 +134,7 @@ export default function SoupsMenu() {
                             <Typography className={classes.soupsHeaderText}>Rs. 160</Typography>
                         </Grid>
                         <Grid container justifyContent={"center"} className={classes.textGrid}>
-                            <Button variant="contained" color="primary" onClick={() => addToCartButton("6", "soups", 160)}>
+                            <Button variant="contained" color="primary" onClick={() => addToCartButton("6", "soups", 160, "Raddish Soup")}>
                                 Add to cart
                             </Button>
                         </Grid>

@@ -1,6 +1,4 @@
 import { Box, Button, Card, CardContent, CardMedia, createStyles, Grid, makeStyles, Typography } from "@material-ui/core";
-import Image from "next/image";
-import NavBar from "../src/components/navbar";
 import { ArrowRightAlt } from "@material-ui/icons";
 import { useRouter } from "next/router";
 
@@ -125,7 +123,7 @@ export default function Home() {
                         <CardMedia image={"/donation.jpg"} className={classes.productCardMedia} />
                         <CardContent>
                             <Typography className={classes.productCardText}>
-                                On every order above 50 Euros, we donate 2% to the Food Relief Foundation.
+                                On every order above 500 Rupees, we donate 2% to the Food Relief Foundation.
                             </Typography>
                         </CardContent>
                     </Card>
@@ -141,7 +139,7 @@ export default function Home() {
                     endIcon={<ArrowRightAlt style={{ width: 32, height: 32 }} />}
                     onClick={() => router.push("/menu")}
                 >
-                    <Typography className={classes.menuButtonText}>SHOW ME THE MENU NOW</Typography>
+                    <Typography className={classes.menuButtonText}>Take me to the menu</Typography>
                 </Button>
             </Grid>
         </Box>

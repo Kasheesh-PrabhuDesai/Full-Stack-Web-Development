@@ -15,49 +15,13 @@ import BeveragesMenu from "./beverages";
 const useStyle = makeStyles(theme =>
     createStyles({
         tabsGrid: {
-            height: 50,
+            width: "100%",
             justifyContent: "center"
         },
         tabs: {
             fontSize: 16,
             fontWeight: 600,
             border: "2px solid #d8dee9"
-        },
-        indicator: {
-            background: "purple"
-        },
-        root: {
-            backgroundColor: "blue"
-        },
-        buttonGrid: {
-            marginTop: theme.spacing(5),
-            marginLeft: theme.spacing(3),
-            width: "95%",
-            justifyContent: "space-between"
-        },
-        descriptionCardGrid: {
-            marginLeft: theme.spacing(4),
-            marginTop: theme.spacing(-29.5),
-            paddingBottom: theme.spacing(7)
-        },
-        descriptionCard: {
-            width: 400,
-            height: 160,
-            background: "linear-gradient(90deg, #172B4D 0%, #1A174D 100%)",
-            boxShadow: "0px 0px 32px rgba(136, 152, 170, 0.15)",
-            borderRadius: "6px",
-            marginLeft: theme.spacing(1),
-            marginTop: theme.spacing(-8.5)
-        },
-        descriptionCardRealEstateNameInput: {
-            height: 40,
-            marginTop: theme.spacing(-2),
-            borderRadius: "4px"
-        },
-        descriptionCardRealEstateDescriptionInput: {
-            height: 80,
-            borderRadius: "4px",
-            marginTop: theme.spacing(2)
         }
     })
 );
