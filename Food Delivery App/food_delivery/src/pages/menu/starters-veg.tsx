@@ -1,4 +1,6 @@
 import { Card, makeStyles, createStyles, CardMedia, CardContent, Typography, Grid, Button } from "@material-ui/core";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../../store/slices/cart.slice";
 
 const useStyle = makeStyles(theme =>
     createStyles({
@@ -23,6 +25,13 @@ const useStyle = makeStyles(theme =>
 export default function StartersVegMenu() {
     const classes = useStyle();
 
+    const dispatch = useDispatch();
+
+    const addToCartButton = async (id: string, category: string, price: number, name: string) => {
+        const product = { id: id, category: category, price: price, name: name };
+        dispatch(addToCart(product));
+    };
+
     return (
         <>
             <Grid container justifyContent={"space-around"}>
@@ -36,7 +45,7 @@ export default function StartersVegMenu() {
                             <Typography className={classes.soupsHeaderText}>Rs. 160</Typography>
                         </Grid>
                         <Grid container justifyContent={"center"} className={classes.textGrid}>
-                            <Button variant="contained" color="primary">
+                            <Button variant="contained" color="primary" onClick={() => addToCartButton("7", "soups", 100, "Potato Creamy Soup")}>
                                 Add to cart
                             </Button>
                         </Grid>
@@ -53,7 +62,7 @@ export default function StartersVegMenu() {
                             <Typography className={classes.soupsHeaderText}>Rs. 180</Typography>
                         </Grid>
                         <Grid container justifyContent={"center"} className={classes.textGrid}>
-                            <Button variant="contained" color="primary">
+                            <Button variant="contained" color="primary" onClick={() => addToCartButton("1", "soups", 100, "Potato Creamy Soup")}>
                                 Add to cart
                             </Button>
                         </Grid>

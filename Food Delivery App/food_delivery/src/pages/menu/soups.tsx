@@ -32,8 +32,6 @@ export default function SoupsMenu() {
         dispatch(addToCart(product));
     };
 
-    const cart = useSelector((state: any) => state.cart);
-
     return (
         <>
             <Grid container justifyContent={"space-around"}>
