@@ -2,7 +2,7 @@ import "../styles/globals.css";
 import { Fragment, useEffect } from "react";
 import PropTypes from "prop-types";
 import { ThemeProvider, CssBaseline } from "@material-ui/core";
-import theme from "../src/theme";
+import theme from "../src/utils/theme";
 
 function MyApp({ Component, pageProps }: any) {
   useEffect(() => {
