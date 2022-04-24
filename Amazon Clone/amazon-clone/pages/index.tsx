@@ -1,22 +1,49 @@
-import type { NextPage } from "next";
-import Head from "next/head";
-import Image from "next/image";
+import {
+  Button,
+  Card,
+  CardActionArea,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Grid,
+  Typography,
+} from "@material-ui/core";
+import Link from "next/link";
 import Layout from "../src/components/layout";
-import styles from "../styles/Home.module.css";
+import data from "../src/utils/data";
 
-const Home: NextPage = () => {
+export default function Home() {
   return (
     <Layout>
       <div>
-        <h1>Products</h1>
-        <ul>
-          <li>Product 1</li>
-          <li>Product 2</li>
-          <li>Product 3</li>
-        </ul>
+        <h1>Product</h1>
+        <Grid container spacing={3}>
+          {data?.products?.map(product => (
+            <Grid item md={4} key={product.name}>
+              <Card>
+                <Link href={`/product/${product.slug}`} passHref>
+                  <CardActionArea>
+                    <CardMedia
+                      component={"img"}
+                      image={product.image}
+                      title={product.name}
+                    />
+                    <CardContent>
+                      <Typography>{product.name}</Typography>
+                    </CardContent>
+                  </CardActionArea>
+                </Link>
+                <CardActions>
+                  <Typography>Rs. {product.price}</Typography>
+                  <Button size="small" color="primary">
+                    Add to cart
+                  </Button>
+                </CardActions>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
       </div>
     </Layout>
   );
-};
-
-export default Home;
+}
