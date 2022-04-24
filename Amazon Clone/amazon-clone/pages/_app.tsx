@@ -1,8 +1,7 @@
 import "../styles/globals.css";
-import { Fragment, useEffect } from "react";
+import { useEffect } from "react";
 import PropTypes from "prop-types";
-import { ThemeProvider, CssBaseline } from "@material-ui/core";
-import theme from "../src/utils/theme";
+import { StoreProvider } from "../src/store";
 
 function MyApp({ Component, pageProps }: any) {
   useEffect(() => {
@@ -12,13 +11,9 @@ function MyApp({ Component, pageProps }: any) {
   }, []);
 
   return (
-    <Fragment>
-      <ThemeProvider theme={theme}>
-        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-        <CssBaseline />
-        <Component {...pageProps} />
-      </ThemeProvider>
-    </Fragment>
+    <StoreProvider>
+      <Component {...pageProps} />
+    </StoreProvider>
   );
 }
 
