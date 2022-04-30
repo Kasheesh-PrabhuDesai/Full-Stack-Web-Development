@@ -9,28 +9,19 @@ import {
   ThemeProvider,
   CssBaseline,
   Switch,
+  Badge,
 } from "@material-ui/core";
 import Head from "next/head";
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import useStyles from "../utils/style";
 import NextLink from "next/link";
 import { Store } from "../store";
 import Cookies from "js-cookie";
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 
 export default function Layout({ children, description, title }: any) {
-  const classes = useStyles();
   const { state, dispatch } = useContext(Store);
-  const { darkMode } = state;
-
-  console.log(darkMode);
-
-  const [pageMode, setPageMode] = useState(false);
-
-  const handleChangeMode = () => {
-    dispatch({ type: darkMode ? "DARK_MODE_OFF" : "DARK_MODE_ON" });
-    const newDarkMode = !darkMode;
-    Cookies.set("darkMode", newDarkMode ? "ON" : "OFF");
-  };
+  const { darkMode, cart } = state;
 
   const theme = createTheme({
     typography: {
@@ -44,9 +35,6 @@ export default function Layout({ children, description, title }: any) {
         fontWeight: 400,
         margin: "1rem 0",
       },
-      body1: {
-        fontWeight: "normal",
-      },
     },
     palette: {
       type: darkMode ? "dark" : "light",
@@ -59,8 +47,16 @@ export default function Layout({ children, description, title }: any) {
     },
   });
 
+  const classes = useStyles();
+
+  const handleChangeMode = () => {
+    dispatch({ type: darkMode ? "DARK_MODE_OFF" : "DARK_MODE_ON" });
+    const newDarkMode = !darkMode;
+    Cookies.set("darkMode", newDarkMode ? "ON" : "OFF");
+  };
+
   return (
-    <Box>
+    <div>
       <Head>
         <title>{title ? `${title}-Lets Shop` : "Lets Shop"}</title>
         {description && <meta name="description" content={description}></meta>}
@@ -68,32 +64,43 @@ export default function Layout({ children, description, title }: any) {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <AppBar position="static" className={classes.navbar}>
-          <Toolbar>
-            <NextLink href="/" passHref>
-              <Link className={classes.grow}>
-                <Typography className={classes.brand}>Lets Shop</Typography>
-              </Link>
-            </NextLink>
-            <Switch checked={darkMode} onClick={handleChangeMode}></Switch>
-            <NextLink href="/cart" passHref>
-              <Link>
-                <Typography>Cart</Typography>
-              </Link>
-            </NextLink>
-            <NextLink href="/login" passHref>
-              <Link>
-                <Typography>Login</Typography>
-              </Link>
-            </NextLink>
+          <Toolbar className={classes.toolbar}>
+            <Box display="flex" alignItems="center">
+              <NextLink href="/" passHref>
+                <Link>
+                  <Typography className={classes.brand}>Lets Shop</Typography>
+                </Link>
+              </NextLink>
+            </Box>
+            <div>
+              <Switch checked={darkMode} onClick={handleChangeMode}></Switch>
+              <NextLink href="/cart" passHref>
+                <Link>
+                  {cart.cartItems.length > 0 ? (
+                    <Badge
+                      color="secondary"
+                      badgeContent={cart?.cartItems?.length}
+                    >
+                      <ShoppingCartIcon />
+                    </Badge>
+                  ) : (
+                    <ShoppingCartIcon />
+                  )}
+                </Link>
+              </NextLink>
+              <NextLink href="/login" passHref>
+                <Link>
+                  <Typography component="span">Login</Typography>
+                </Link>
+              </NextLink>
+            </div>
           </Toolbar>
         </AppBar>
         <Container className={classes.main}>{children}</Container>
         <footer className={classes.footer}>
-          <Typography variant="h4">
-            All rights reserved. Lets Shop ©2022-2023
-          </Typography>
+          <Typography>All rights reserved. Lets Shop ©2022-2023</Typography>
         </footer>
       </ThemeProvider>
-    </Box>
+    </div>
   );
 }
