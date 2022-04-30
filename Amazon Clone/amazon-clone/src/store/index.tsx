@@ -1,6 +1,8 @@
 import Cookies from "js-cookie";
 import { createContext, Dispatch, useReducer } from "react";
 
+export const Store = createContext({} as IContextProps);
+
 const initialState = {
   darkMode: Cookies.get("darkMode") === "ON" ? true : false,
   cart: {
@@ -14,8 +16,6 @@ interface IContextProps {
   state: typeof initialState;
   dispatch: Dispatch<any>;
 }
-
-export const Store = createContext({} as IContextProps);
 
 function reducer(state: any, action: any) {
   if (action.type === "DARK_MODE_ON") {
@@ -37,7 +37,7 @@ function reducer(state: any, action: any) {
     Cookies.set("cartItems", JSON.stringify(cartItems));
     return { ...state, cart: { ...state.cart, cartItems } };
   } else {
-    return { ...state };
+    return state;
   }
 }
 

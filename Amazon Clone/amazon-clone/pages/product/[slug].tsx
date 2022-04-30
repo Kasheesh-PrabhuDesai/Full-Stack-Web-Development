@@ -15,18 +15,23 @@ import db from "../../src/utils/connectDb";
 import Product from "../../src/models/Product";
 import { useContext } from "react";
 import { Store } from "../../src/store";
+import axios from "axios";
 
 export default function ProductPage(props: any) {
   const { product } = props;
   const classes = useStyles();
-
-  const { state, dispatch } = useContext(Store);
+  const { dispatch } = useContext(Store);
 
   if (!product) {
     return <div>Product Not Found</div>;
   }
 
   const handleAddToCart = async () => {
+    const { data } = await axios.get(`/api/products/${product._id}`);
+    if (data.countInStock <= 0) {
+      window.alert("SORRY PRODUCT IS OUT OF STOCK");
+      return;
+    }
     dispatch({ type: "ADD_TO_CART", payload: { ...product, quantity: 1 } });
   };
 
