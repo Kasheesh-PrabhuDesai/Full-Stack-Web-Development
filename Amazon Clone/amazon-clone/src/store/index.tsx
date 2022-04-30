@@ -3,6 +3,11 @@ import { createContext, Dispatch, useReducer } from "react";
 
 const initialState = {
   darkMode: Cookies.get("darkMode") === "ON" ? true : false,
+  cart: {
+    cartItems: Cookies.get("cartItems")
+      ? JSON.parse(Cookies.get("cartItems")!)
+      : [],
+  },
 };
 
 interface IContextProps {
@@ -18,6 +23,19 @@ function reducer(state: any, action: any) {
   }
   if (action.type === "DARK_MODE_OFF") {
     return { ...state, darkMode: false };
+  }
+  if (action.type === "ADD_TO_CART") {
+    const newItem = action.payload;
+    const existItem = state.cart.cartItems.find(
+      (item: any) => item._id === newItem._id
+    );
+    const cartItems = existItem
+      ? state.cart.cartItems.map((item: any) =>
+          item.name === existItem.name ? newItem : item
+        )
+      : [...state.cart.cartItems, newItem];
+    Cookies.set("cartItems", JSON.stringify(cartItems));
+    return { ...state, cart: { ...state.cart, cartItems } };
   } else {
     return { ...state };
   }
