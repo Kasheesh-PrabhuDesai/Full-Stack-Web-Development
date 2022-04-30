@@ -10,10 +10,13 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.12.4",
-    "@material-ui/styles": "^4.11.5",
+    "@material-ui/icons": "^4.11.3",
     "@types/js-cookie": "^3.0.2",
+    "axios": "^0.26.1",
     "js-cookie": "^3.0.1",
+    "mongoose": "^6.3.1",
     "next": "12.1.5",
+    "next-connect": "^0.12.2",
     "react": "18.0.0",
     "react-dom": "18.0.0",
     "react-redux": "^8.0.1"
