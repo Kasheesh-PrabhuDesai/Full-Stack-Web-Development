@@ -16,11 +16,13 @@ import Product from "../../src/models/Product";
 import { useContext } from "react";
 import { Store } from "../../src/store";
 import axios from "axios";
+import { useRouter } from "next/router";
 
 export default function ProductPage(props: any) {
   const { product } = props;
   const classes = useStyles();
   const { dispatch } = useContext(Store);
+  const router = useRouter();
 
   if (!product) {
     return <div>Product Not Found</div>;
@@ -33,6 +35,7 @@ export default function ProductPage(props: any) {
       return;
     }
     dispatch({ type: "ADD_TO_CART", payload: { ...product, quantity: 1 } });
+    router.push("/cart");
   };
 
   return (
