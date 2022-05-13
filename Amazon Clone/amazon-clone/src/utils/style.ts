@@ -6,7 +6,6 @@ const useStyles = makeStyles(theme =>
       backgroundColor: "#203040",
       "& a": {
         color: "#ffffff",
-        margin: 5,
       },
     },
     brand: {
@@ -22,7 +21,6 @@ const useStyles = makeStyles(theme =>
     footer: {
       marginTop: 10,
       textAlign: "center",
-      justifyContent: "center",
     },
     section: {
       marginTop: 10,

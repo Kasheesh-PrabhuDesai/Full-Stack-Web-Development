@@ -18,8 +18,9 @@ import NextLink from "next/link";
 import { Store } from "../store";
 import Cookies from "js-cookie";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import dynamic from "next/dynamic";
 
-export default function Layout({ children, description, title }: any) {
+function Layout({ children, description, title }: any) {
   const { state, dispatch } = useContext(Store);
   const { darkMode, cart } = state;
 
@@ -104,3 +105,5 @@ export default function Layout({ children, description, title }: any) {
     </div>
   );
 }
+
+export default dynamic(() => Promise.resolve(Layout), { ssr: false });

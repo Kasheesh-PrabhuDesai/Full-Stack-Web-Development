@@ -9,12 +9,33 @@ import {
   Typography,
 } from "@material-ui/core";
 import Link from "next/link";
+import { useContext } from "react";
 import Layout from "../src/components/layout";
 import Product from "../src/models/Product";
 import db from "../src/utils/connectDb";
+import { Store } from "../src/store";
+import axios from "axios";
+import { useRouter } from "next/router";
 
 export default function Home(props: any) {
   const { products } = props;
+  const { state, dispatch } = useContext(Store);
+  const router = useRouter();
+
+  const handleAddToCart = async (product: any) => {
+    const existItem = state.cart.cartItems.find(
+      (x: any) => x._id === product._id
+    );
+    const quantity = existItem ? existItem.quantity + 1 : 1;
+    const { data } = await axios.get(`/api/products/${product._id}`);
+    if (data.countInStock < quantity) {
+      window.alert("SORRY PRODUCT IS OUT OF STOCK");
+      return;
+    }
+
+    dispatch({ type: "ADD_TO_CART", payload: { ...product, quantity } });
+    router.push("/cart");
+  };
   return (
     <Layout>
       <div>
@@ -37,7 +58,11 @@ export default function Home(props: any) {
                 </Link>
                 <CardActions>
                   <Typography>Rs. {product.price}</Typography>
-                  <Button size="small" color="primary">
+                  <Button
+                    size="small"
+                    color="primary"
+                    onClick={() => handleAddToCart(product)}
+                  >
                     Add to cart
                   </Button>
                 </CardActions>
