@@ -21,12 +21,15 @@ import { Store } from "../../src/store";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import axios from "axios";
+import { useRouter } from "next/router";
 
 function CartScreen() {
   const { state, dispatch } = useContext(Store);
   const {
     cart: { cartItems },
   } = state;
+
+  const router = useRouter();
 
   const handleUpdateCart = async (item: any, quantity: number) => {
     const { data } = await axios.get(`/api/products/${item._id}`);
@@ -39,6 +42,10 @@ function CartScreen() {
 
   const handleDeleteItem = async (item: any) => {
     dispatch({ type: "DELETE_FROM_CART", payload: item });
+  };
+
+  const handleCheckout = () => {
+    router.push("/shipping");
   };
 
   return (
@@ -85,7 +92,9 @@ function CartScreen() {
                       <TableCell align="right">
                         <Select
                           value={item.quantity}
-                          onChange={e => handleUpdateCart(item, e.target.value)}
+                          onChange={(e: any) =>
+                            handleUpdateCart(item, e.target.value)
+                          }
                         >
                           {[...Array(item.countInStock).keys()].map(x => (
                             <MenuItem key={x + 1} value={x + 1}>
@@ -129,7 +138,12 @@ function CartScreen() {
                   </Typography>
                 </ListItem>
                 <ListItem>
-                  <Button variant="contained" color="primary" fullWidth>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    fullWidth
+                    onClick={handleCheckout}
+                  >
                     Checkout
                   </Button>
                 </ListItem>

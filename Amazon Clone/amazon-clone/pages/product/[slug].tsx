@@ -34,7 +34,7 @@ export default function ProductPage(props: any) {
     );
     const quantity = existItem ? existItem.quantity + 1 : 1;
     const { data } = await axios.get(`/api/products/${product._id}`);
-a    if (data.countInStock < quantity) {
+    if (data.countInStock < quantity) {
       window.alert("SORRY PRODUCT IS OUT OF STOCK");
       return;
     }

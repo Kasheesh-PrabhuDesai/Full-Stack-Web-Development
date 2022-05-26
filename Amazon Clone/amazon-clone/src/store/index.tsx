@@ -1,6 +1,11 @@
 import Cookies from "js-cookie";
 import { createContext, Dispatch, useReducer } from "react";
 
+interface IContextProps {
+  state: typeof initialState;
+  dispatch: Dispatch<any>;
+}
+
 export const Store = createContext({} as IContextProps);
 
 const initialState = {
@@ -11,11 +16,6 @@ const initialState = {
       : [],
   },
 };
-
-interface IContextProps {
-  state: typeof initialState;
-  dispatch: Dispatch<any>;
-}
 
 function reducer(state: any, action: any) {
   if (action.type === "DARK_MODE_ON") {
