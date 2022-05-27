@@ -4,14 +4,30 @@ import {
   Typography,
   List,
   Button,
+  Link,
 } from "@material-ui/core";
 import axios from "axios";
-import Link from "next/link";
-import React, { useState } from "react";
+import Cookies from "js-cookie";
+import NextLink from "next/link";
+import { useRouter } from "next/router";
+import React, { useContext, useEffect, useState } from "react";
 import Layout from "../../src/components/layout";
+import { Store } from "../../src/store";
 import useStyles from "../../src/utils/style";
 
 export default function Login() {
+  const router = useRouter();
+  const { state, dispatch } = useContext(Store);
+  const { userInfo } = state;
+
+  const { redirectRoute } = router.query;
+
+  useEffect(() => {
+    if (userInfo) {
+      router.push("/");
+    }
+  }, [router, userInfo]);
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -24,7 +40,9 @@ export default function Login() {
         email,
         password,
       });
-      alert("succss login");
+      dispatch({ type: "USER_LOGIN", payload: data });
+      Cookies.set("userInfo", JSON.stringify(data));
+      router.push(redirectRoute?.toString() || "/");
     } catch (err: any) {
       alert(err.response.data ? err.response.data.message : err.message);
     }
@@ -64,7 +82,9 @@ export default function Login() {
           </ListItem>
           <ListItem>
             Don't have an account? &nbsp;
-            <Link href="/register">Register</Link>
+            <NextLink href="/" passHref>
+              <Link>Register</Link>
+            </NextLink>
           </ListItem>
         </List>
       </form>
