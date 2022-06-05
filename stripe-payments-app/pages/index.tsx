@@ -2,8 +2,11 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
+import { checkout } from "./checkout";
 
 const Home: NextPage = () => {
+  const handleCheckout = () => {};
+
   return (
     <div className={styles.container}>
       <Head>
@@ -16,15 +19,26 @@ const Home: NextPage = () => {
         <h1 className={styles.title}>Buy my art work </h1>
 
         <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
+          <div className={styles.card}>
             <Image src="/art-1.jpg" width={600} height={600} />
             <h2>Shona Lisa</h2>
-          </a>
+            <button
+              onClick={() => {
+                checkout({
+                  lineItems: [
+                    { price: "price_1L7Du8DlXeCDkklrstcPylH4", quantity: 1 },
+                  ],
+                });
+              }}
+            >
+              BUY NOW!
+            </button>
+          </div>
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
+          <div className={styles.card}>
             <Image src="/art-2.jpg" width={600} height={600} />
             <h2>Majnoo Bhai</h2>
-          </a>
+          </div>
         </div>
       </main>
     </div>
