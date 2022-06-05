@@ -1,5 +1,10 @@
 import { loadStripe } from "@stripe/stripe-js";
 
+interface productDetails {
+  price: string;
+  quantity: number;
+}
+
 export async function checkout({ lineItems }) {
   let stripePromise: any = null;
 
