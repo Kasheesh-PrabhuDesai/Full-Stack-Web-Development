@@ -97,7 +97,7 @@ function Layout({ children, description, title }: any) {
                 </Link>
               </NextLink>
             </Box>
-            <div>
+            <div style={{ display: "inline-flex" }}>
               <Switch checked={darkMode} onClick={handleChangeMode}></Switch>
               <NextLink href="/cart" passHref>
                 <Link>
@@ -106,10 +106,10 @@ function Layout({ children, description, title }: any) {
                       color="secondary"
                       badgeContent={cart?.cartItems?.length}
                     >
-                      <ShoppingCartIcon />
+                      <ShoppingCartIcon style={{ width: 32, height: 32 }} />
                     </Badge>
                   ) : (
-                    <ShoppingCartIcon />
+                    <ShoppingCartIcon style={{ width: 32, height: 32 }} />
                   )}
                 </Link>
               </NextLink>
@@ -139,7 +139,14 @@ function Layout({ children, description, title }: any) {
                 </>
               ) : (
                 <NextLink href="/login" passHref>
-                  <Link>Login</Link>
+                  <Link>
+                    <Typography
+                      component="span"
+                      style={{ marginLeft: 15, fontSize: 20 }}
+                    >
+                      Login
+                    </Typography>
+                  </Link>
                 </NextLink>
               )}
             </div>
