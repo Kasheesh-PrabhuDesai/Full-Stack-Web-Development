@@ -17,6 +17,9 @@ const initialState = {
     shippingAddress: Cookies.get("shippingAddress")
       ? JSON.parse(Cookies.get("shippingAddress")!)
       : { location: {} },
+    paymentMethod: Cookies.get("paymentMethod")
+      ? Cookies.get("paymentMethod")
+      : "",
   },
   userInfo: Cookies.get("userInfo")
     ? JSON.parse(Cookies.get("userInfo")!)
@@ -60,6 +63,12 @@ function reducer(state: any, action: any) {
           ...action.payload,
         },
       },
+    };
+  }
+  if (action.type === "SAVE_PAYMENT_METHOD") {
+    return {
+      ...state,
+      cart: { ...state.cart, paymentMethod: action.payload },
     };
   }
   if (action.type === "USER_LOGIN") {
