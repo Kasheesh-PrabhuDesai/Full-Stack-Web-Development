@@ -27,57 +27,72 @@ const initialState = {
 };
 
 function reducer(state: any, action: any) {
-  if (action.type === "DARK_MODE_ON") {
-    return { ...state, darkMode: true };
-  }
-  if (action.type === "DARK_MODE_OFF") {
-    return { ...state, darkMode: false };
-  }
-  if (action.type === "ADD_TO_CART") {
-    const newItem = action.payload;
-    const existItem = state.cart.cartItems.find(
-      (item: any) => item._id === newItem._id
-    );
-    const cartItems = existItem
-      ? state.cart.cartItems.map((item: any) =>
-          item.name === existItem.name ? newItem : item
-        )
-      : [...state.cart.cartItems, newItem];
-    Cookies.set("cartItems", JSON.stringify(cartItems));
-    return { ...state, cart: { ...state.cart, cartItems } };
-  }
-  if (action.type === "DELETE_FROM_CART") {
-    const cartItems = state.cart.cartItems.filter(
-      (item: any) => item._id !== action.payload._id
-    );
-    Cookies.set("cartItems", JSON.stringify(cartItems));
-    return { ...state, cart: { ...state.cart, cartItems } };
-  }
-  if (action.type === "SAVE_SHIPPING_ADDRESS") {
-    return {
-      ...state,
-      cart: {
-        ...state.cart,
-        shippingAddress: {
-          ...state.cart.shippingAddress,
-          ...action.payload,
+  switch (action.type) {
+    case "DARK_MODE_ON":
+      return { ...state, darkMode: true };
+
+    case "DARK_MODE_OFF":
+      return { ...state, darkMode: false };
+
+    case "ADD_TO_CART": {
+      const newItem = action.payload;
+      const existItem = state.cart.cartItems.find(
+        (item: any) => item._id === newItem._id
+      );
+      const cartItems = existItem
+        ? state.cart.cartItems.map((item: any) =>
+            item.name === existItem.name ? newItem : item
+          )
+        : [...state.cart.cartItems, newItem];
+      Cookies.set("cartItems", JSON.stringify(cartItems));
+      return { ...state, cart: { ...state.cart, cartItems } };
+    }
+    case "DELETE_FROM_CART": {
+      const cartItems = state.cart.cartItems.filter(
+        (item: any) => item._id !== action.payload._id
+      );
+      Cookies.set("cartItems", JSON.stringify(cartItems));
+      return { ...state, cart: { ...state.cart, cartItems } };
+    }
+    case "SAVE_SHIPPING_ADDRESS": {
+      return {
+        ...state,
+        cart: {
+          ...state.cart,
+          shippingAddress: {
+            ...state.cart.shippingAddress,
+            ...action.payload,
+          },
         },
-      },
-    };
-  }
-  if (action.type === "SAVE_PAYMENT_METHOD") {
-    return {
-      ...state,
-      cart: { ...state.cart, paymentMethod: action.payload },
-    };
-  }
-  if (action.type === "USER_LOGIN") {
-    return { ...state, userInfo: action.payload };
-  }
-  if (action.type === "USER_LOGOUT") {
-    return { ...state, userInfo: null, cart: { cartItems: [] } };
-  } else {
-    return state;
+      };
+    }
+
+    case "SAVE_PAYMENT_METHOD": {
+      return {
+        ...state,
+        cart: { ...state.cart, paymentMethod: action.payload },
+      };
+    }
+
+    case "CART_CLEAR":
+      return { ...state, cart: { ...state.cart, cartItems: [] } };
+
+    case "USER_LOGIN":
+      return { ...state, userInfo: action.payload };
+
+    case "USER_LOGOUT":
+      return {
+        ...state,
+        userInfo: null,
+        cart: {
+          cartItems: [],
+          shippingAddress: { location: {} },
+          paymentMethod: "",
+        },
+      };
+
+    default:
+      return state;
   }
 }
 
